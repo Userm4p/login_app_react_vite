@@ -1,0 +1,23 @@
+{
+  "loginPage": {
+    "title": "Iniciar sesión",
+    "usernameLabel": "Nombre de usuario",
+    "usernamePlaceholder": "usuario123",
+    "passwordLabel": "Contraseña",
+    "passwordPlaceholder": "********",
+    "rememberMe": "Recuérdame",
+    "forgotPassword": "¿Olvidaste tu contraseña?",
+    "loginButton": "Ingresar"
+  },
+  "commons": {
+    "loading": "Cargando...",
+    "error": "Ocurrió un error. Por favor, inténtalo de nuevo.",
+    "success": "Operación exitosa",
+    "submit": "Enviar",
+    "cancel": "Cancelar",
+    "yes": "Sí",
+    "no": "No",
+    "errorTitle": "Error",
+    "closeButton": "Cerrar"
+  }
+}

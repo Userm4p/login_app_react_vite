@@ -1,0 +1,23 @@
+{
+  "loginPage": {
+    "title": "Login",
+    "usernameLabel": "Username",
+    "usernamePlaceholder": "user123",
+    "passwordLabel": "Password",
+    "passwordPlaceholder": "********",
+    "rememberMe": "Remember me",
+    "forgotPassword": "Forgot your password?",
+    "loginButton": "Login"
+  },
+  "commons": {
+    "loading": "Loading...",
+    "error": "An error occurred. Please try again.",
+    "success": "Successful operation",
+    "submit": "Submit",
+    "cancel": "Cancel",
+    "yes": "Yes",
+    "no": "No",
+    "errorTitle": "Error",
+    "closeButton": "Close"
+  }
+}
