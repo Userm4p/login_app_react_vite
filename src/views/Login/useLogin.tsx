@@ -25,7 +25,8 @@ export const useLogin = () => {
         form.username,
         form.password,
       );
-      const userInfo = await userService.getUserInfo(authInfo.access);
+      userService.setToken(authInfo.access);
+      const userInfo = await userService.getUserInfo();
       login(userInfo, authInfo.access);
     } catch {
       setError(t("error"));
@@ -37,7 +38,6 @@ export const useLogin = () => {
   const handleInputChange = useCallback(
     (e: React.ChangeEvent<HTMLInputElement>) => {
       const { name, value } = e.target;
-      console.log(name, value);
       setForm({
         ...form,
         [name]: value,
@@ -49,10 +49,9 @@ export const useLogin = () => {
   const handleSubmit = useCallback(
     async (e: React.FormEvent) => {
       e.preventDefault();
-      console.log(form);
       await postLogin();
     },
-    [postLogin, form],
+    [postLogin],
   );
 
   return {

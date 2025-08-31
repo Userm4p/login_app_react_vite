@@ -1,31 +1,22 @@
 import { useCallback, useEffect, useState } from "react";
 import type { ILoginContext } from "./LoginContext";
 import type { User } from "../../types/UserResponse";
+import {
+  removeLoginInfoInLocalStorage,
+  setLoginInfoInLocalStorage,
+} from "../../helpers/localstorage";
 
 export const useLoginContext = (): ILoginContext => {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [user, setUser] = useState<User | null>(null);
   const [token, setToken] = useState<string | null>(null);
 
-  const setLoginInfoInLocalStorage = useCallback(
-    (user: User, token: string) => {
-      localStorage.setItem("user", JSON.stringify(user));
-      localStorage.setItem("access_token", token);
-    },
-    [],
-  );
-
-  const removeLoginInfoInLocalStorage = useCallback(() => {
-    localStorage.removeItem("user");
-    localStorage.removeItem("access_token");
-  }, []);
-
   const logout = useCallback(() => {
     setIsLoggedIn(false);
     setUser(null);
     setToken(null);
     removeLoginInfoInLocalStorage();
-  }, [removeLoginInfoInLocalStorage]);
+  }, []);
 
   const getLoginInfoFromLocalStorage = useCallback(() => {
     const userString = localStorage.getItem("user");
@@ -41,14 +32,19 @@ export const useLoginContext = (): ILoginContext => {
     setIsLoggedIn(true);
   }, [logout]);
 
-  const login = useCallback(
-    (user: User, token: string) => {
-      setIsLoggedIn(true);
+  const login = useCallback((user: User, token: string) => {
+    setIsLoggedIn(true);
+    setUser(user);
+    setToken(token);
+    setLoginInfoInLocalStorage(user, token);
+  }, []);
+
+  const refreshUser = useCallback(
+    (user: User) => {
       setUser(user);
-      setToken(token);
-      setLoginInfoInLocalStorage(user, token);
+      setLoginInfoInLocalStorage(user, token!);
     },
-    [setLoginInfoInLocalStorage],
+    [token],
   );
 
   useEffect(() => {
@@ -62,5 +58,6 @@ export const useLoginContext = (): ILoginContext => {
     token,
     login,
     logout,
+    setUser: refreshUser,
   };
 };

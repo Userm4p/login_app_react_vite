@@ -82,3 +82,23 @@ export interface Portafolio {
   url: null;
   usuario_id: number;
 }
+
+export interface UpdateUserFormRequest {
+  user: UserUpdateInfo;
+  telefono: string;
+  biografia: string;
+  documento: string;
+  linkedin: string;
+  twitter: string;
+  github: string;
+  sitio_web: string;
+}
+
+export interface UserUpdateInfo {
+  first_name: string;
+  last_name: string;
+}
+
+export interface UserUpdateResponse extends ApiResponse {
+  data: UpdateUserFormRequest;
+}

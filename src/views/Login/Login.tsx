@@ -1,6 +1,7 @@
 import { useTranslation } from "react-i18next";
 import { useLogin } from "./useLogin";
 import { ErrorsModal } from "../../common/components/ErrorsModal";
+import { Loader } from "../../common/components/Loader";
 
 const Login = () => {
   const { t } = useTranslation("loginPage");
@@ -52,11 +53,7 @@ const Login = () => {
               type="submit"
               className="w-full rounded-lg bg-blue-600 text-white py-2 font-medium hover:bg-blue-700 transition-colors cursor-pointer flex items-center justify-center"
             >
-              {loading ? (
-                <div className="w-5 h-5 border-2 border-white border-t-transparent rounded-full animate-spin" />
-              ) : (
-                t("loginButton")
-              )}
+              {loading ? <Loader /> : t("loginButton")}
             </button>
           </form>
         </div>

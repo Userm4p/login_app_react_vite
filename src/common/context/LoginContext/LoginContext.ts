@@ -7,6 +7,7 @@ export interface ILoginContext {
   token: string | null;
   login: (user: User, token: string) => void;
   logout: () => void;
+  setUser: (user: User) => void;
 }
 
 const LoginContext = createContext<ILoginContext>({
@@ -15,6 +16,7 @@ const LoginContext = createContext<ILoginContext>({
   token: null,
   login: () => {},
   logout: () => {},
+  setUser: () => {},
 });
 
 export default LoginContext;

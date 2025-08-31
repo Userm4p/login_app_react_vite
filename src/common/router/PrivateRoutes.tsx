@@ -1,10 +1,14 @@
 import { Route, Routes } from "react-router-dom";
+import { PrivateRoutesLayout } from "../components/PrivateRoutesLayout";
+import UserProfile from "../../views/UserProfile/UserProfile";
 
 const PrivateRoutes = () => {
   return (
-    <Routes>
-      <Route path="/*" element={<>Hello world</>} />
-    </Routes>
+    <PrivateRoutesLayout>
+      <Routes>
+        <Route path="/*" element={<UserProfile />} />
+      </Routes>
+    </PrivateRoutesLayout>
   );
 };
 

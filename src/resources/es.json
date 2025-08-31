@@ -18,6 +18,39 @@
     "yes": "Sí",
     "no": "No",
     "errorTitle": "Error",
-    "closeButton": "Cerrar"
+    "closeButton": "Cerrar",
+    "logout": "Cerrar sesión"
+  },
+  "userProfile": {
+    "biography": "Biografía",
+    "education": "Educación",
+    "inProgress": "En curso",
+    "workExperience": "Experiencia Laboral",
+    "current": "Actualidad",
+    "functions": "Funciones",
+    "skills": "Habilidades",
+    "portfolio": "Portafolio",
+    "viewMore": "Ver más",
+    "socialNetworks": "Redes Sociales",
+    "website": "Sitio Web"
+  },
+  "userProfileEditModal": {
+    "editProfile": "Editar Perfil",
+    "name": "Nombre",
+    "lastName": "Apellido",
+    "biography": "Biografía",
+    "document": "Documento",
+    "email": "Email",
+    "phone": "Teléfono",
+    "username": "Usuario",
+    "photoUrl": "Foto (URL)",
+    "github": "GitHub",
+    "linkedin": "LinkedIn",
+    "twitter": "Twitter",
+    "cancel": "Cancelar",
+    "save": "Guardar",
+    "changePhoto": "Cambiar Foto",
+    "noPhoto": "Sin Foto",
+    "selectFile": "Seleccionar Archivo"
   }
 }
