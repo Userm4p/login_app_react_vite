@@ -146,13 +146,13 @@ const EditUserModal = ({ user, onSave, loading }: Props) => {
             <div className="flex justify-end gap-2 mt-4">
               <button
                 onClick={() => setIsOpen(false)}
-                className="px-4 py-2 border rounded-lg hover:bg-gray-100"
+                className="px-4 py-2 border rounded-lg hover:bg-gray-100 cursor-pointer"
               >
                 {t("cancel")}
               </button>
               <button
                 onClick={handleSubmit}
-                className="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700"
+                className="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 cursor-pointer"
               >
                 {loading ? <Loader /> : <>{t("save")}</>}
               </button>

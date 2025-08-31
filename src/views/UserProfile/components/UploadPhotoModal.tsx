@@ -90,14 +90,14 @@ const UploadPhotoModal = ({
             <div className="flex justify-end gap-2 mt-6">
               <button
                 onClick={() => setIsOpen(false)}
-                className="px-4 py-2 border rounded-lg hover:bg-gray-100"
+                className="px-4 py-2 border rounded-lg hover:bg-gray-100 cursor-pointer"
               >
                 {t("cancel")}
               </button>
               <button
                 onClick={handleSubmit}
                 disabled={!selectedFile}
-                className="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 disabled:opacity-50 disabled:cursor-not-allowed"
+                className="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 disabled:opacity-50 disabled:cursor-not-allowed cursor-pointer"
               >
                 {loading ? <Loader /> : t("save")}
               </button>
