@@ -1,10 +1,10 @@
 import { useCallback, useContext, useMemo, useState } from "react";
 import { UserService } from "../../common/api/services/user_service";
 import LoginContext from "../../common/context/LoginContext/LoginContext";
-import { useTranslation } from "react-i18next";
+import { useErrorHandler } from "../../common/hooks/useErrorHandler";
 
 export const useLogin = () => {
-  const { t } = useTranslation("commons");
+  const { handleLoginError } = useErrorHandler();
 
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
@@ -28,12 +28,13 @@ export const useLogin = () => {
       userService.setToken(authInfo.access);
       const userInfo = await userService.getUserInfo();
       login(userInfo, authInfo.access);
-    } catch {
-      setError(t("error"));
+    } catch (error) {
+      const errorMessage = handleLoginError(error);
+      setError(errorMessage);
     } finally {
       setLoading(false);
     }
-  }, [userService, form, login, t]);
+  }, [userService, form, login, handleLoginError]);
 
   const handleInputChange = useCallback(
     (e: React.ChangeEvent<HTMLInputElement>) => {

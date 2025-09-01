@@ -21,6 +21,43 @@
     "closeButton": "Cerrar",
     "logout": "Cerrar sesión"
   },
+  "errors": {
+    "general": "Ocurrió un error. Por favor, inténtalo de nuevo.",
+    "network": "Error de conexión. Verifica tu conexión a internet.",
+    "unauthorized": "No tienes autorización para realizar esta acción.",
+    "forbidden": "Acceso denegado.",
+    "notFound": "Recurso no encontrado.",
+    "serverError": "Error del servidor. Inténtalo más tarde.",
+    "timeout": "La operación tardó demasiado. Inténtalo de nuevo.",
+    "validation": "Datos inválidos. Verifica la información ingresada.",
+    "login": {
+      "invalidCredentials": "Usuario o contraseña incorrectos.",
+      "accountLocked": "Tu cuenta ha sido bloqueada. Contacta al administrador.",
+      "tooManyAttempts": "Demasiados intentos fallidos. Inténtalo más tarde.",
+      "serviceUnavailable": "El servicio de autenticación no está disponible."
+    },
+    "userProfile": {
+      "fetchError": "Error al cargar el perfil del usuario.",
+      "updateError": "Error al actualizar el perfil del usuario.",
+      "photoUploadError": "Error al subir la foto de perfil.",
+      "photoFetchError": "Error al cargar la foto de perfil.",
+      "invalidPhotoFormat": "Formato de imagen no válido. Usa JPG, PNG o GIF.",
+      "photoTooLarge": "La imagen es demasiado grande. Máximo 5MB."
+    },
+    "api": {
+      "400": "Solicitud incorrecta. Verifica los datos enviados.",
+      "401": "Sesión expirada. Inicia sesión nuevamente.",
+      "403": "No tienes permisos para realizar esta acción.",
+      "404": "El recurso solicitado no fue encontrado.",
+      "409": "Conflicto con el estado actual del recurso.",
+      "422": "Datos de validación incorrectos.",
+      "429": "Demasiadas solicitudes. Inténtalo más tarde.",
+      "500": "Error interno del servidor.",
+      "502": "Servidor no disponible temporalmente.",
+      "503": "Servicio no disponible.",
+      "504": "Tiempo de espera agotado."
+    }
+  },
   "userProfile": {
     "biography": "Biografía",
     "education": "Educación",

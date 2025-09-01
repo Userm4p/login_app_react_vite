@@ -38,7 +38,16 @@ const EditUserModal = ({ user, onSave, loading }: Props) => {
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
   ) => {
     const { name, value } = e.target;
-    setFormData((prev) => ({ ...prev, [name]: value }));
+
+    if (name.includes("user")) {
+      const key = name.split(".")[1];
+      setFormData((prev) => ({
+        ...prev,
+        user: { ...prev.user, [key]: value },
+      }));
+    } else {
+      setFormData((prev) => ({ ...prev, [name]: value }));
+    }
   };
 
   const handleSubmit = async () => {

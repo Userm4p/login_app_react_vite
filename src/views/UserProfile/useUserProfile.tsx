@@ -1,11 +1,11 @@
 import { useMemo, useCallback, useState, useContext } from "react";
-import { useTranslation } from "react-i18next";
 import { UserService } from "../../common/api/services/user_service";
 import LoginContext from "../../common/context/LoginContext/LoginContext";
 import type { UpdateUserFormRequest } from "../../common/types/UserResponse";
+import { useErrorHandler } from "../../common/hooks/useErrorHandler";
 
 export const useUserProfile = () => {
-  const { t } = useTranslation("commons");
+  const { handleUserProfileError } = useErrorHandler();
 
   const [loading, setLoading] = useState({
     photo: false,
@@ -26,12 +26,13 @@ export const useUserProfile = () => {
     try {
       const data = await userService.getUserInfo();
       setUser(data);
-    } catch {
-      setError(t("error"));
+    } catch (error) {
+      const errorMessage = handleUserProfileError(error, "fetch");
+      setError(errorMessage);
     } finally {
       setLoading((prev) => ({ ...prev, info: false }));
     }
-  }, [t, userService, setUser]);
+  }, [userService, setUser, handleUserProfileError]);
 
   const updateUserInfo = useCallback(
     async (data: UpdateUserFormRequest) => {
@@ -40,13 +41,14 @@ export const useUserProfile = () => {
       try {
         await userService.updateUserInfo(data);
         await getUserInfo();
-      } catch {
-        setError(t("error"));
+      } catch (error) {
+        const errorMessage = handleUserProfileError(error, "update");
+        setError(errorMessage);
       } finally {
         setLoading((prev) => ({ ...prev, updateInfo: false }));
       }
     },
-    [t, userService, getUserInfo],
+    [userService, getUserInfo, handleUserProfileError],
   );
 
   const updateUserPhoto = useCallback(
@@ -58,13 +60,14 @@ export const useUserProfile = () => {
       try {
         await userService.updateUserProfilePicture(formData);
         await getUserInfo();
-      } catch {
-        setError(t("error"));
+      } catch (error) {
+        const errorMessage = handleUserProfileError(error, "photoUpload");
+        setError(errorMessage);
       } finally {
         setLoading((prev) => ({ ...prev, updatePhoto: false }));
       }
     },
-    [t, userService, getUserInfo],
+    [userService, getUserInfo, handleUserProfileError],
   );
 
   const getUserPhotoUrl = useCallback(
@@ -75,13 +78,14 @@ export const useUserProfile = () => {
         const file = await userService.getUserPhotoBlob(photoPath);
         const url = URL.createObjectURL(file);
         setPhotoUrl(url);
-      } catch {
-        setError(t("error"));
+      } catch (error) {
+        const errorMessage = handleUserProfileError(error, "photoFetch");
+        setError(errorMessage);
       } finally {
         setLoading((prev) => ({ ...prev, photo: false }));
       }
     },
-    [userService, t],
+    [userService, handleUserProfileError],
   );
 
   const {

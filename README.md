@@ -5,6 +5,7 @@ Una aplicación de login moderna construida con React, TypeScript y Vite, que in
 ## 🚀 Tecnologías Utilizadas
 
 ### Frontend
+
 - **React 19** - Biblioteca de interfaz de usuario
 - **TypeScript** - Tipado estático para JavaScript
 - **Vite** - Herramienta de construcción rápida
@@ -12,11 +13,13 @@ Una aplicación de login moderna construida con React, TypeScript y Vite, que in
 - **React Router DOM** - Enrutamiento de la aplicación
 
 ### Librerías de Testing
+
 - **Jest** - Framework de testing
 - **React Testing Library** - Testing de componentes React
 - **ts-jest** - Preset de Jest para TypeScript
 
 ### Herramientas de Desarrollo
+
 - **ESLint** - Linter de código
 - **Prettier** - Formateador de código
 - **SWC** - Compilador rápido de JavaScript/TypeScript
@@ -44,18 +47,21 @@ src/
 ## 🛠️ Instalación y Configuración
 
 ### Prerrequisitos
+
 - **Node.js** versión 18 o superior
 - **npm** o **yarn** como gestor de paquetes
 
 ### Pasos de Instalación
 
 1. **Clonar el repositorio**
+
    ```bash
    git clone <url-del-repositorio>
    cd login_app_react_vite
    ```
 
 2. **Instalar dependencias**
+
    ```bash
    npm install
    ```
@@ -69,6 +75,7 @@ src/
 ## 🚀 Comandos Disponibles
 
 ### Desarrollo
+
 ```bash
 # Iniciar servidor de desarrollo
 npm run dev
@@ -81,6 +88,7 @@ npm run preview
 ```
 
 ### Testing
+
 ```bash
 # Ejecutar todos los tests
 npm test
@@ -93,6 +101,7 @@ npm test -- --watch
 ```
 
 ### Calidad de Código
+
 ```bash
 # Linting del código
 npm run lint
@@ -111,6 +120,7 @@ El proyecto utiliza Jest como framework de testing principal con las siguientes 
 - **Coverage de código** configurado
 
 ### Ejecutar Tests Específicos
+
 ```bash
 # Test de un archivo específico
 npm test -- src/views/Login/useLogin.test.tsx
@@ -125,14 +135,17 @@ npm test -- --testNamePattern="maneja errores 401"
 ## 🔧 Configuración
 
 ### TypeScript
+
 - **tsconfig.json** - Configuración principal
 - **tsconfig.app.json** - Configuración para la aplicación
 - **tsconfig.jest.json** - Configuración para Jest
 
 ### Vite
+
 - **vite.config.ts** - Configuración de Vite con plugin React SWC
 
 ### ESLint
+
 - **eslint.config.js** - Configuración de ESLint con reglas TypeScript
 
 ## 🌐 Características de la Aplicación
@@ -164,6 +177,7 @@ npm test -- --testNamePattern="maneja errores 401"
 ## 🚀 Despliegue
 
 ### Build de Producción
+
 ```bash
 npm run build
 ```
@@ -171,6 +185,7 @@ npm run build
 El comando generará una carpeta `dist/` con los archivos optimizados para producción.
 
 ### Servidor de Vista Previa
+
 ```bash
 npm run preview
 ```

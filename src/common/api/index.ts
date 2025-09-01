@@ -14,7 +14,9 @@ apiClient.interceptors.response.use(
   (error) => {
     if (error.response && error.response.status === 401) {
       removeLoginInfoInLocalStorage();
-      reloadPage();
+      if (!error.response.config.url.includes("login")) {
+        reloadPage();
+      }
     }
     return Promise.reject(error);
   },
