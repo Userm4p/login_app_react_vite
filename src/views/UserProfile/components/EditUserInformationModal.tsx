@@ -59,7 +59,7 @@ const EditUserModal = ({ user, onSave, loading }: Props) => {
           <div className="bg-white rounded-xl shadow-lg w-full max-w-2xl p-6 relative">
             <h2 className="text-xl font-semibold mb-4">{t("editProfile")}</h2>
 
-            <div className="space-y-4 max-h-[70vh] overflow-y-auto pr-2">
+            <div className="space-y-4 max-h-[70vh] overflow-y-auto pr-2  py-2">
               <div className="flex gap-4">
                 <div className="flex-1">
                   <label className="text-sm font-medium">{t("name")}</label>
@@ -110,9 +110,7 @@ const EditUserModal = ({ user, onSave, loading }: Props) => {
                 />
               </div>
               <div className="space-y-2">
-                <label className="text-sm font-medium">
-                  {t("socialNetworks")}
-                </label>
+                <label className="text-gray-700 transition">Github</label>
                 <input
                   className="w-full border rounded p-2"
                   name="github"
@@ -120,6 +118,7 @@ const EditUserModal = ({ user, onSave, loading }: Props) => {
                   value={formData.github}
                   onChange={handleChange}
                 />
+                <label className="text-blue-700 transition">Linkedin</label>
                 <input
                   className="w-full border rounded p-2"
                   name="linkedin"
@@ -127,6 +126,9 @@ const EditUserModal = ({ user, onSave, loading }: Props) => {
                   value={formData.linkedin}
                   onChange={handleChange}
                 />
+                <label className="text-gray-700 transition">
+                  {t("website")}
+                </label>
                 <input
                   className="w-full border rounded p-2"
                   name="sitio_web"
@@ -134,6 +136,7 @@ const EditUserModal = ({ user, onSave, loading }: Props) => {
                   value={formData.sitio_web}
                   onChange={handleChange}
                 />
+                <label className="text-blue-400 transition">Twitter</label>
                 <input
                   className="w-full border rounded p-2"
                   name="twitter"

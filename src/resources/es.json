@@ -51,6 +51,8 @@
     "save": "Guardar",
     "changePhoto": "Cambiar Foto",
     "noPhoto": "Sin Foto",
-    "selectFile": "Seleccionar Archivo"
+    "selectFile": "Seleccionar Archivo",
+    "socialNetworks": "Redes Sociales",
+    "website": "Sitio Web"
   }
 }

@@ -51,6 +51,8 @@
     "save": "Save",
     "changePhoto": "Change Photo",
     "noPhoto": "No Photo",
-    "selectFile": "Select File"
+    "selectFile": "Select File",
+    "socialNetworks": "Social Networks",
+    "website": "Website"
   }
 }
