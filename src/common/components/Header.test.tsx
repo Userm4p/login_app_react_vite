@@ -3,7 +3,6 @@ import { render, screen } from "@testing-library/react";
 jest.mock("../context/LoginContext/LoginContext", () => ({
   __esModule: true,
   default: {
-    // Simula el contexto para useContext
     Provider: ({ children }: any) => children,
     Consumer: ({ children }: any) => children({ logout: jest.fn() }),
   },

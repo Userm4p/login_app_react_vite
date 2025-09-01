@@ -39,7 +39,6 @@ describe("useLogin", () => {
         target: { name: "username", value: "julia" },
       } as any);
     });
-    // No hay acceso directo al form, pero no debe lanzar error
   });
 
   it("handleSubmit llama a postLogin", async () => {

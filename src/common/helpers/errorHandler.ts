@@ -38,7 +38,6 @@ export const handleApiError = (error: unknown): ApiError => {
     let code = "UNKNOWN_ERROR";
     let details: Record<string, string[]> | undefined;
 
-    // Handle specific HTTP status codes
     switch (status) {
       case 400:
         message = errorData?.message || errorData?.detail || "Bad request";
@@ -109,19 +108,16 @@ export const handleApiError = (error: unknown): ApiError => {
     return new ApiError(status, message, code, details);
   }
 
-  // Handle other types of errors
   if (error instanceof Error) {
     return new ApiError(0, error.message, "GENERIC_ERROR");
   }
 
-  // Handle unknown error types
   return new ApiError(0, "An unknown error occurred", "UNKNOWN_ERROR");
 };
 
 export const getErrorMessageKey = (error: ApiError): string => {
   const { status, code } = error;
 
-  // Handle specific error codes first
   switch (code) {
     case "TIMEOUT":
       return "timeout";
@@ -133,7 +129,6 @@ export const getErrorMessageKey = (error: ApiError): string => {
       return "api.429";
   }
 
-  // Handle HTTP status codes
   if (status >= 400 && status < 500) {
     if (status === 401) return "api.401";
     if (status === 403) return "api.403";
@@ -156,7 +151,6 @@ export const getErrorMessageKey = (error: ApiError): string => {
 export const getLoginErrorMessageKey = (error: ApiError): string => {
   const { status } = error;
 
-  // Handle specific login errors
   if (status === 401) {
     return "login.invalidCredentials";
   }
@@ -182,7 +176,6 @@ export const getUserProfileErrorMessageKey = (
 ): string => {
   const { status, code } = error;
 
-  // Handle specific user profile errors
   if (code === "VALIDATION_ERROR") {
     if (operation === "photoUpload") {
       return "userProfile.invalidPhotoFormat";

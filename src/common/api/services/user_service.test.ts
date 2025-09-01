@@ -1,11 +1,9 @@
 import { UserService } from "./user_service";
 
-// Mock axios
 jest.mock("axios", () => ({
   create: jest.fn(),
 }));
 
-// Mock apiClient
 jest.mock("../index", () => ({
   __esModule: true,
   default: {
@@ -16,7 +14,6 @@ jest.mock("../index", () => ({
   },
 }));
 
-// Mock types
 jest.mock("../../types/LoginResponse", () => ({
   LoginResponse: {},
 }));
@@ -34,10 +31,8 @@ describe("UserService", () => {
   beforeEach(() => {
     jest.clearAllMocks();
 
-    // Get mocked apiClient
     mockApiClient = require("../index").default;
 
-    // Create service instance
     userService = new UserService("test-token");
   });
 

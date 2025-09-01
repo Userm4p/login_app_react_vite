@@ -10,19 +10,16 @@ jest.mock("axios", () => ({
   create: jest.fn(() => mockAxiosInstance),
 }));
 
-// Mock envs
 jest.mock("../config/envs", () => ({
   envs: {
     VITE_API_URL: "http://localhost:3000/api",
   },
 }));
 
-// Mock localStorage helpers
 jest.mock("../helpers/localstorage", () => ({
   removeLoginInfoInLocalStorage: jest.fn(),
 }));
 
-// Mock reloadPage helper
 jest.mock("../helpers/reloadPage", () => ({
   reloadPage: jest.fn(),
 }));
