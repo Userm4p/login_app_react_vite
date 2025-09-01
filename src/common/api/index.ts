@@ -1,6 +1,7 @@
 import axios from "axios";
 import { envs } from "../config/envs";
 import { removeLoginInfoInLocalStorage } from "../helpers/localstorage";
+import { reloadPage } from "../helpers/reloadPage";
 
 const apiClient = axios.create({
   baseURL: envs.VITE_API_URL,
@@ -13,7 +14,7 @@ apiClient.interceptors.response.use(
   (error) => {
     if (error.response && error.response.status === 401) {
       removeLoginInfoInLocalStorage();
-      window.location.reload();
+      reloadPage();
     }
     return Promise.reject(error);
   },
